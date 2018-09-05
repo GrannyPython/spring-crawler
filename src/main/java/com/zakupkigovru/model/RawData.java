@@ -8,5 +8,5 @@ public class RawData {
     @Id
     Long id;
     String link;
-    String itemText;
+    String text;
 }

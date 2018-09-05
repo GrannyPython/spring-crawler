@@ -1,20 +1,19 @@
-package com.zakupkigovru;
-
+package com.zakupkigovru.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.h2.tools.RunScript;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.nio.charset.Charset;
 import java.sql.SQLException;
 
 @Slf4j
-public class ShutdownListener implements ApplicationListener<ContextRefreshedEvent> {
+@Component
+public class DumpService {
 
-
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    @Scheduled
+    void dumpData() {
         try {
             RunScript.execute("jdbc:h2:./db/data", "sa", "", "./db/backup.sql", Charset.defaultCharset(), true);
         } catch (SQLException e) {

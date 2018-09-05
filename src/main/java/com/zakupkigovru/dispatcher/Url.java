@@ -1,5 +1,6 @@
-package com.zakupkigovru;
+package com.zakupkigovru.dispatcher;
 
+import com.zakupkigovru.FederalLaw;
 import lombok.Builder;
 
 import java.time.LocalDate;
@@ -7,7 +8,6 @@ import java.time.format.DateTimeFormatter;
 
 @Builder
 public class Url {
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     private Integer pageNumber;
     private FederalLaw law;
