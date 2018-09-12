@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CurrentDispatcher implements Dispatcher {
     @Override
-    public String nextLink() {
+    public Url getNextLink() {
         return null;
     }
 }
